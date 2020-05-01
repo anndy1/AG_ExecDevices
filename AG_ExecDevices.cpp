@@ -267,7 +267,7 @@ uint8_t Thermostat:: getPwm(){
 
 void Thermostat:: runPwm(){
   uint16_t pwmMap;
-  if (_active){
+  if (_isActive){
     pwmMap = map(_pwmValue, 0, 20, 0, 1023);
   }
   else {
@@ -277,6 +277,6 @@ void Thermostat:: runPwm(){
     analogWrite(_pin, pwmMap);
   }
   else {
-    off();
+    setOff();
   }
 }
